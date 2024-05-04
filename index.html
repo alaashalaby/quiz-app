@@ -8,6 +8,83 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Quiz App</h1>
+    </header>
+    <main>
+        <div class="start_box">
+            <form>
+                <label for="name">
+                    <span>Name<sup style="color: #f00;">*</sup></span>
+                </label>
+                <input type="text" placeholder="Enter Your Name" id="name" aria-label="username">
+                <p class="error-message">Please Enter Your Message</p>
+                <button class="start_btn btn">Start Quiz</button>
+            </form>
+        </div>
+        <div class="rules_box">
+            <div class="rules_box_title">
+                <h2>Some Rules of This Quiz</h2>
+            </div>
+            <ol class="rules_box_list">
+                <li>You will have only <span class="rules_time">15 seconds</span> per each question.</li>
+                <li>Once you select your answer, it can't be undone.</li>
+                <li>You can't select any option once time goes off.</li>
+                <li>You can't exit from the Quiz while you're playing.</li>
+                <li>You'll get points on the basis of your correct answers.</li>
+            </ol>
+            <div class="rules_box_btns">
+                <button class="exit_btn btn">Exit Quiz</button>
+                <button class="continue_btn btn">Continue</button>
+            </div>
+        </div>
+        <div class="quiz_box">
+            <div class="quiz_box_header">
+                <p class="welcome_message"> Welcome, Alaa 🤩</p>
+                <div class="quiz_box_time">
+                    <p class="time_text">Time Left: <span class="timer">10</span></p>
+                </div>
+            </div>
+            <div class="questions">
+                <h3 class="question_text">What does HTML stand for?</h3>
+                <div class="answers_list">
+                    <div class="answer">
+                        <p class="answer_text">Hyper Text Preprocessor</p>
+                        <span><i class='bx bx-x icon wrong'></i></span>
+                    </div>
+                    <div class="answer">
+                        <p>Hyper Text Markup Language</p>
+                        <span><i class='bx bx-check icon correct'></i></span>
+                    </div>
+                    <div class="answer">
+                        <p>Hyper Text Multiple Language</p>
+                    </div>
+                    <div class="answer">
+                        <p>Hyper Tool Multi Language</p>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz_box_footer">
+                <div class="total_question">
+                    <p><span>2</span> of <span>10</span> Questions</p>
+                </div>
+                <button class="next_btn btn">Next Question</button>
+            </div>
+        </div>
+        <div class="result_box">
+            <div class="result_box_congrats">
+                <h3 class="congrats_text">Congratulations, Alaa 🥳</h3>
+                <p class="complete_text">You have completed Quiz ❤️</p>
+                <p class="score_text">You got 10 out of 10</p>
+            </div>
+            <div class="result_box_btns">
+                <button class="restart_btn btn">Restart Quiz</button>
+                <button class="close_btn btn">Close Quiz</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Code Made by Alaa Shalaby ❤️</p>
+    </footer>
 </body>
 </html>
