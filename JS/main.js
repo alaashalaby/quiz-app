@@ -128,3 +128,34 @@ function selectAnswer(answer) {
   });
 
 }
+
+continueBtn.addEventListener("click", () => {
+  rulesBox.style.display = "none";
+  quizBox.style.display = "block";
+  let welcomeMessage = document.querySelector(".welcome_message");
+  welcomeMessage.innerHTML = `Welcome, ${localStorage.getItem("username")} 🤩`;
+  showQuestions(currentQuestionIndex);
+  showTotalQuestion();
+});
+
+function nextQuestion() {
+  if (currentQuestionIndex < questions.length - 1) {
+    currentQuestionIndex++;
+    showQuestions(currentQuestionIndex);
+    showTotalQuestion();
+    clearInterval(timerInterval);
+    startTimer(time);
+  }
+}
+
+// display Next question
+nextBtn.addEventListener("click", nextQuestion);
+
+// display total question
+function showTotalQuestion() {
+  totalQuestion.innerHTML = "";
+  let totalQuestionContent = `<p><span>${
+    currentQuestionIndex + 1
+  }</span> of <span>${questions.length}</span> Questions</p>`;
+  totalQuestion.innerHTML = totalQuestionContent;
+}
