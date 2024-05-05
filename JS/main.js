@@ -14,6 +14,9 @@ let timer = document.querySelector(".timer");
 let correctIcon = `<span><i class='bx bx-check icon correct'></i></span>`;
 let wrongIcon = `<span><i class='bx bx-x icon wrong'></i></span>`;
 let currentQuestionIndex = 0;
+let score = 0;
+let time = 15;
+let timerInterval;
 
 // prevent default behavior of form submission
 form.addEventListener("submit", (e) => {
@@ -40,6 +43,7 @@ let startQuiz = () => {
     hideErrorMessage();
     startBox.style.display = "none";
     rulesBox.style.display = "block";
+    startTimer(time);
   }
 };
 
@@ -52,6 +56,33 @@ let exitQuiz = () => {
 };
 startBtn.addEventListener("click", startQuiz);
 exitBtn.addEventListener("click", exitQuiz);
+// function to start Timer
+function startTimer(time) {
+  timerInterval = setInterval(() => {
+    timer.textContent = time < 10 ? "0" + time : time;
+    time--;
+    if (time < 0) {
+      clearInterval(timerInterval);
+      timer.innerHTML = "00";
+      autoSelectAnswer();
+      setTimeout(nextQuestion, 800);
+    }
+  }, 1000);
+}
+
+// function to automatically select the correct answer when time runs out
+function autoSelectAnswer() {
+  let answers = answersList.querySelectorAll(".answer");
+  let correctAnswer = questions[currentQuestionIndex].correctAnswer;
+  answers.forEach((answer) => {
+    let selectedAnswer = answer.querySelector("p").innerHTML;
+    if (selectedAnswer === correctAnswer) {
+      answer.classList.add("correct");
+      answer.innerHTML += correctIcon;
+    }
+    answer.classList.add("disabled");
+  });
+}
 
 // function to show questions
 function showQuestions() {
