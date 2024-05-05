@@ -39,3 +39,13 @@ let startQuiz = () => {
     rulesBox.style.display = "block";
   }
 };
+
+// function to exit Quiz
+let exitQuiz = () => {
+  localStorage.removeItem("username");
+  userName.value = "";
+  startBox.style.display = "block";
+  rulesBox.style.display = "none";
+};
+startBtn.addEventListener("click", startQuiz);
+exitBtn.addEventListener("click", exitQuiz);
