@@ -11,3 +11,31 @@ let continueBtn = document.querySelector(".continue_btn");
 let nextBtn = document.querySelector(".next_btn");
 let totalQuestion = quizBox.querySelector(".total_question");
 let timer = document.querySelector(".timer");
+
+// prevent default behavior of form submission
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
+// function to show error message
+let showErrorMessage = (message) => {
+  errorMessage.style.display = "block";
+  errorMessage.innerHTML = message;
+};
+
+// function to hide error message
+let hideErrorMessage = () => {
+  errorMessage.style.display = "none";
+};
+
+// function to startQuiz
+let startQuiz = () => {
+  if (userName.value.trim() === "") {
+    showErrorMessage("Please Enter a Valid Name");
+  } else {
+    localStorage.setItem("username", userName.value);
+    hideErrorMessage();
+    startBox.style.display = "none";
+    rulesBox.style.display = "block";
+  }
+};
