@@ -11,6 +11,8 @@ let continueBtn = document.querySelector(".continue_btn");
 let nextBtn = document.querySelector(".next_btn");
 let totalQuestion = quizBox.querySelector(".total_question");
 let timer = document.querySelector(".timer");
+let correctIcon = `<span><i class='bx bx-check icon correct'></i></span>`;
+let wrongIcon = `<span><i class='bx bx-x icon wrong'></i></span>`;
 let currentQuestionIndex = 0;
 
 // prevent default behavior of form submission
@@ -69,4 +71,29 @@ function showQuestions() {
   answers.forEach((answer) => {
     answer.addEventListener("click", () => selectAnswer(answer));
   });
+}
+// function to select correct Answer
+function selectAnswer(answer) {
+  clearInterval(timerInterval);
+  let selectedAnswer = answer.querySelector("p").innerHTML;
+  let correctAnswer = questions[currentQuestionIndex].correctAnswer;
+  if (selectedAnswer === correctAnswer) {
+    answer.classList.add("correct");
+    answer.innerHTML += correctIcon;
+    score++;
+  } else {
+    answer.classList.add("wrong");
+    answer.innerHTML += wrongIcon;
+    let correctAnswerIndex = Array.from(answersList.children).findIndex(
+      (child) => child.querySelector("p").innerHTML === correctAnswer
+    );
+    answersList.children[correctAnswerIndex].classList.add("correct");
+    answersList.children[correctAnswerIndex].innerHTML += correctIcon;
+  }
+
+  let answers = answersList.querySelectorAll(".answer");
+  answers.forEach((answer) => {
+    answer.classList.add("disabled");
+  });
+
 }
