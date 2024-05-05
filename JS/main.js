@@ -5,10 +5,13 @@ let errorMessage = document.querySelector(".error-message");
 let startBox = document.querySelector(".start_box");
 let rulesBox = document.querySelector(".rules_box");
 let quizBox = document.querySelector(".quiz_box");
+let resultBox = document.querySelector(".result_box");
 let answersList = document.querySelector(".answers_list");
 let exitBtn = document.querySelector(".exit_btn");
 let continueBtn = document.querySelector(".continue_btn");
 let nextBtn = document.querySelector(".next_btn");
+let restartBtn = document.querySelector(".restart_btn");
+let closeBtn =document.querySelector(".close_btn");
 let totalQuestion = quizBox.querySelector(".total_question");
 let timer = document.querySelector(".timer");
 let correctIcon = `<span><i class='bx bx-check icon correct'></i></span>`;
@@ -102,6 +105,12 @@ function showQuestions() {
   answers.forEach((answer) => {
     answer.addEventListener("click", () => selectAnswer(answer));
   });
+  if(currentQuestionIndex===questions.length-1){
+    nextBtn.innerHTML = "Finish Quiz";
+  } else {
+    nextBtn.innerHTML = "Next Question";
+  }
+  nextBtn.setAttribute("disabled", true)
 }
 // function to select correct Answer
 function selectAnswer(answer) {
@@ -127,6 +136,7 @@ function selectAnswer(answer) {
     answer.classList.add("disabled");
   });
 
+    nextBtn.removeAttribute("disabled");
 }
 
 continueBtn.addEventListener("click", () => {
@@ -146,6 +156,10 @@ function nextQuestion() {
     clearInterval(timerInterval);
     startTimer(time);
   }
+  else {
+    clearInterval(timerInterval);
+    showResult()
+  }
 }
 
 // display Next question
@@ -154,8 +168,36 @@ nextBtn.addEventListener("click", nextQuestion);
 // display total question
 function showTotalQuestion() {
   totalQuestion.innerHTML = "";
-  let totalQuestionContent = `<p><span>${
-    currentQuestionIndex + 1
-  }</span> of <span>${questions.length}</span> Questions</p>`;
+  let totalQuestionContent = `<p><span>${currentQuestionIndex + 1}</span> of <span>${questions.length}</span> Questions</p>`;
   totalQuestion.innerHTML = totalQuestionContent;
 }
+
+// function to show result
+function showResult() {
+  quizBox.style.display = "none";
+  resultBox.style.display = "block";
+  let congratsText = document.querySelector(".congrats_text");
+  let completeQuiz = document.querySelector(".complete_text")
+  let scoreText = document.querySelector(".score_text");
+  congratsText.innerHTML = `Congratulations, ${localStorage.getItem("username")} 🥳!`;
+  completeQuiz.innerHTML = `You have completed Quiz ❤️`;
+  scoreText.innerHTML = `Your Score is <span>${score}</span>`;
+}
+// close quiz
+closeBtn.addEventListener("click", () => {
+  resultBox.style.display = "none";
+  exitQuiz()
+})
+
+// restart quiz
+restartBtn.addEventListener("click", () => {
+  quizBox.style.display = "block";
+  resultBox.style.display = "none";
+  currentQuestionIndex = 0;
+  score = 0;
+  time = 15;
+  showQuestions(currentQuestionIndex);
+  clearInterval(timerInterval);
+  startTimer(time);
+  showTotalQuestion();
+});
