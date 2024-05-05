@@ -11,6 +11,7 @@ let continueBtn = document.querySelector(".continue_btn");
 let nextBtn = document.querySelector(".next_btn");
 let totalQuestion = quizBox.querySelector(".total_question");
 let timer = document.querySelector(".timer");
+let currentQuestionIndex = 0;
 
 // prevent default behavior of form submission
 form.addEventListener("submit", (e) => {
@@ -49,3 +50,23 @@ let exitQuiz = () => {
 };
 startBtn.addEventListener("click", startQuiz);
 exitBtn.addEventListener("click", exitQuiz);
+
+// function to show questions
+function showQuestions() {
+  let questionText = document.querySelector(".question_text");
+  let currentQuestion = questions[currentQuestionIndex];
+  questionText.innerHTML = `${currentQuestionIndex + 1}. ${
+    currentQuestion.question
+  }`;
+  answersList.innerHTML = "";
+  currentQuestion.answers.forEach((answer, i) => {
+    let answerContent = `<div class="answer">
+                        <p>${answer}</p>
+                        </div>`;
+    answersList.innerHTML += answerContent;
+  });
+  let answers = answersList.querySelectorAll(".answer");
+  answers.forEach((answer) => {
+    answer.addEventListener("click", () => selectAnswer(answer));
+  });
+}
