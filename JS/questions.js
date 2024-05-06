@@ -11,47 +11,50 @@ let questions = [
     correctAnswer: "Both of the above",
   },
   {
-    question: "What does HTML stand for?",
+    question: "What does the abbreviation HTML stand for?",
     answers: [
-      "Hyper Text Preprocessor",
-      "Hyper Text Markup Language",
-      "Hyper Text Multiple Language",
-      "Hyper Tool Multi Language",
+      "HyperText Markdown Language.",
+      "HyperText Markup Language.",
+      "HighText Markup Language.",
+      "None of the above.",
     ],
-    correctAnswer: "Hyper Text Markup Language",
+    correctAnswer: "HyperText Markup Language.",
   },
   {
     question: "What does CSS stand for?",
     answers: [
-      "Common Style Sheet",
-      "Colorful Style Sheet",
-      "Computer Style Sheet",
-      "Cascading Style Sheet",
+      "Computer Style Sheet.",
+      "Colorful Style Sheet.",
+      "Cascading Style Sheet.",
+      "None of the above.",
     ],
-    correctAnswer: "Cascading Style Sheet",
+    correctAnswer: "Cascading Style Sheet.",
   },
   {
-    question:
-      "Which built-in method returns the calling string value converted to upper case?",
+    question: "What is the default value of an uninitialized variable?",
     answers: [
-      "toUpperCase()",
-      "toUpper()",
-      "changeCase(case)",
-      "None of the above",
+      "null",
+      "undefined",
+      "0",
+      "NaN",
     ],
-    correctAnswer: "toUpperCase()",
+    correctAnswer: "undefined",
   },
   {
     question:
       "Which of the following function of String object returns the calling string value converted to lower case?",
-    answers: ["toLowerCase()", "toString()", "toLower()", "None of the above"],
-    correctAnswer: "toLowerCase()",
+    answers: [
+      "toLowerCase().",
+      "toString().",
+      "toLower().",
+      "None of the above.",
+    ],
+    correctAnswer: "toLowerCase().",
   },
   {
-    question:
-      "Which of the following function of Array object joins all elements of an array into a string?",
-    answers: ["concat()", "join()", "pop()", "push()"],
-    correctAnswer: "join()",
+    question: "What is the smallest header in HTML by default?",
+    answers: ["h1", "h2", "h4", "h6"],
+    correctAnswer: "h6",
   },
   {
     question:
@@ -60,9 +63,8 @@ let questions = [
     correctAnswer: "sort()",
   },
   {
-    question:
-      "Which of the following function of String object returns the calling string value?",
-    answers: ["slice()", "split()", "search()", "substr()"],
-    correctAnswer: "slice()",
+    question: "Which JavaScript keyword is used to declare a variable?",
+    answers: ["var.", "let", "const", "All of the above."],
+    correctAnswer: "All of the above.",
   },
 ];
