@@ -193,6 +193,13 @@ function showResult() {
 closeBtn.addEventListener("click", () => {
   resultBox.style.display = "none";
   exitQuiz()
+  currentQuestionIndex = 0;
+  score = 0;
+  time = 15;
+  clearInterval(timerInterval);
+  startTimer(time);
+  showQuestions(currentQuestionIndex);
+  showTotalQuestion();
 })
 
 // restart quiz
@@ -202,8 +209,8 @@ restartBtn.addEventListener("click", () => {
   currentQuestionIndex = 0;
   score = 0;
   time = 15;
-  showQuestions(currentQuestionIndex);
   clearInterval(timerInterval);
   startTimer(time);
+  showQuestions(currentQuestionIndex);
   showTotalQuestion();
 });
