@@ -170,16 +170,6 @@ font-size: 1.3em;
     border-radius: 50%;
     pointer-events: none;
 }
-/* .answer .icon.correct{
-    color: #155724;
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
-}
-.answer .icon.wrong{
-    color: #721c24;
-    background: #f8d7da;
-    border: 1px solid #f5c6cb;
-} */
 .quiz_box_footer{
     display: flex;
     align-items: center;
@@ -198,13 +188,44 @@ font-size: 1.3em;
 /* result-box styling */
 .result_box{
     text-align: center;
-    padding: 1.5em 0;
+    padding: 2.5em 0;
+    position: relative;
+}
+.ballon_img{
+    width: 135px;
+    animation: bounce 4s;
+    animation-iteration-count: infinite;
+}
+.ballon_1{
+    position: absolute;
+    right: 8px;
+    top: 15px;
+}
+.ballon_2{
+    position: absolute;
+    bottom: 6px;
+    left: 11px;
+}
+@keyframes bounce{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+.ballon_1,.ballon_2{
+    display: none;
 }
 .result_box_congrats > *{
     margin-bottom: 0.55em;
 }
 .congrats_text{
     text-transform: capitalize;
+}
+.score_text{
+    font-weight: 700;
+    color: rgb(80 43 116);
 }
 .result_box_btns{
     padding-top: 1em;

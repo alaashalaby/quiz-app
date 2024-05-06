@@ -179,9 +179,15 @@ function showResult() {
   let congratsText = document.querySelector(".congrats_text");
   let completeQuiz = document.querySelector(".complete_text")
   let scoreText = document.querySelector(".score_text");
+  let ballon_1 = document.querySelector(".ballon_1");
+  let ballon_2= document.querySelector(".ballon_2");
   congratsText.innerHTML = `Congratulations, ${localStorage.getItem("username")} 🥳!`;
   completeQuiz.innerHTML = `You have completed Quiz ❤️`;
-  scoreText.innerHTML = `Your Score is <span>${score}</span>`;
+  scoreText.innerHTML = `Your Score is ${score}`;
+  if (score > 5) {
+    ballon_1.style.display = "block";
+    ballon_2.style.display = "block";
+  }
 }
 // close quiz
 closeBtn.addEventListener("click", () => {
