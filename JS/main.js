@@ -187,6 +187,9 @@ function showResult() {
   if (score > 5) {
     ballon_1.style.display = "block";
     ballon_2.style.display = "block";
+  } else {
+    ballon_1.style.display = "none";
+    ballon_2.style.display = "none";
   }
 }
 // close quiz
