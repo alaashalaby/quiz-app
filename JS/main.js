@@ -191,15 +191,16 @@ function showResult() {
 }
 // close quiz
 closeBtn.addEventListener("click", () => {
-  resultBox.style.display = "none";
-  exitQuiz()
-  currentQuestionIndex = 0;
-  score = 0;
-  time = 15;
-  clearInterval(timerInterval);
-  startTimer(time);
-  showQuestions(currentQuestionIndex);
-  showTotalQuestion();
+  // resultBox.style.display = "none";
+  // exitQuiz()
+  // currentQuestionIndex = 0;
+  // score = 0;
+  // time = 15;
+  // clearInterval(timerInterval);
+  // startTimer(time);
+  // showQuestions(currentQuestionIndex);
+  // showTotalQuestion();
+  window.location.href = "index.html"
 })
 
 // restart quiz
