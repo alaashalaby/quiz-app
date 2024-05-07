@@ -183,7 +183,7 @@ function showResult() {
   let ballon_2= document.querySelector(".ballon_2");
   congratsText.innerHTML = `Congratulations, ${localStorage.getItem("username")} 🥳!`;
   completeQuiz.innerHTML = `You have completed Quiz ❤️`;
-  scoreText.innerHTML = `Your Score is ${score}`;
+  scoreText.innerHTML = `You got ${score} out of ${questions.length}.`;
   if (score > 5) {
     ballon_1.style.display = "block";
     ballon_2.style.display = "block";
